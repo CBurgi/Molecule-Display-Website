@@ -1,0 +1,188 @@
+/* Define colour palette (blue) */
+:root{
+    --background: aliceblue;
+    --text: white;
+    --element-border: #020020;
+    --element-main: #00008a;
+    --element-hover: #040064;
+    --element-active: #1802bc; 
+
+}
+
+/* General */
+#clarify {
+    /* For clarifying text */
+    display: inline-block;
+    width: 100%;
+    height: 4vh;
+    font-style: italic;
+    color: blue
+}
+
+button {
+    /* Base styling for all buttons */
+    background-color: inherit;
+    color: var(--text);
+    margin: auto;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+.button {
+    /* Generic non-tab buttons */
+    width: 32vh;
+    padding: 1vh 0;
+    margin: 1vh;
+    color: var(--text);
+    background-color: var(--element-main);
+    border: 1px solid var(--element-border);
+}
+
+button:hover {
+    /* Change background color of buttons on hover */
+    background-color: var(--element-hover);
+}
+
+button.active {
+    /* Create active/current tab */
+    background-color: var(--element-active);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Header */
+.tabs {
+    /* Style for tabs at top */
+    overflow: hidden;
+    border: 1px solid var(--element-border);
+    background-color: var(--element-main);
+}
+
+.tabs h1 {
+    /* Style for header above the the tab content */
+    background-color: inherit;
+    color: aliceblue;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+
+.tabs button {
+    /* Style for tab buttons used in the header */
+    padding: 14px 0px;
+    width: 33%;
+}
+
+.tabs #return {
+    /* Style for return button used in the header */
+    padding: 14px 0px;
+    width: 100%;
+}
+
+.content {
+    /* Formatting of background for content of tabs */
+    animation: fadeEffect 1s;
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid var(--element-border);
+    background-color: var(--background);
+    border-top: none;
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Specific */
+.label {
+    /* Labels for Add/Remove Element tab */
+    display: inline-block;
+    width: 35vh;
+    height: 6vh;
+}
+
+#element_add .colour {
+    /* Colour inputs for Add/Remove Element tab */
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.t_input {
+    /* Style for any text input (including number input) */
+    padding: 6px 12px;
+    display: inline-block;
+    width: 30vh;
+    border: 1px solid #0c0c0c;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#mol_label {
+    /* Label for Upload .sdf File tab (for mol name) */
+    display: inline-block;
+    width: 25vh;
+    height: 2vh;
+}
+
+/* Style for file input in Upload .sdf File tab */
+#sdf_file {
+    display: none;
+}
+.sdf_label:hover {
+    background-color: #040064;
+}
+.sdf_label {
+    padding: 1vh 5vh;
+    margin: 1vh;
+    color: var(--text);
+    background-color: var(--element-main);
+    border: 1px solid var(--element-border);
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+/* Style for selection box in Display Molecule tab */
+.mol_select {
+    padding: 1vh;
+    background-color: var(--background);
+    /* padding: 0vh 12vh; */
+    
+}
+.mol_select option:hover {
+    background-color: var(--element-active);
+}
+.mol_select option {
+    padding: 2vh 12vh;
+    margin: 1vh;
+    border: 1px solid var(--element-border);
+    background-color: var(--element-main);
+    color: var(--text);
+    margin: auto;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+.display_content {
+    /* Formatting of background for when displaying a molecule */
+    /* display: none; */
+    padding: 6px 12px;
+    border: 1px solid var(--element-border);
+    background-color: var(--background);
+    border-top: none;
+}

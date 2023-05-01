@@ -1,0 +1,84 @@
+<html>
+
+<!-- importing necessary files -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"> </script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <!-- tile and tab elements -->
+    <section class="tabs">
+        <h1 id="title"><b>Cole's Molecule Database</b></h1>
+        <button class="tab" id="open_page_button" onclick="openPage(event, 'open_page')" hidden>Add/remove element</button>
+        <button class="tab" id="element_add_button" onclick="openPage(event, 'element_add')">Add/remove element</button>
+        <button class="tab" id="sdf_upload_button" onclick="openPage(event, 'sdf_upload')">Upload a .sdf file</button>
+        <button class="tab" id="display_mol_button" onclick="openPage(event, 'display_mol'), dropAddMolecules()">Display a molecule</button>
+    </section>
+
+    <!-- tab that user sees when first loading page -->
+    <section id="open_page" class="content">
+        <h1>Welcome to Cole's Molecule Database!</h1>
+        <h3>You can navigate this webpage using the tabs above.</h3>
+    </section>
+
+    <!-- "Add/remove element" tab -->
+    <section id="element_add" class="content">
+        <h1>Add/Remove Element</h1>
+            <label class="label" for="element_no">Element Number (ex: 1)</label>
+            <input class="t_input" type="number" id="element_no" name="element_no" min="1" max="137" /><br>
+            <label class="label" for="element_no">Element Code (ex: H)</label>
+            <input class="t_input" type="text" id="element_code" name="element_code" minlength="1" maxlength="3"><br>
+            <label class="label" for="element_no">Element Name (ex: Hydrogen)</label>
+            <input class="t_input" type="text" id="element_name" name="element_name" minlength="1" maxlength="32"><br>
+            <label class="label" for="element_no">Element Colours</label>
+            <input type="color" class="colour" id="colour1" name="colour1" value="#FF0000">
+            <input type="color" class="colour" id="colour2" name="colour2" value="#00FF00">
+            <input type="color" class="colour" id="colour3" name="colour3" value="#0000FF"><br>
+            <label class="label" for="element_no">Element Radius (ex: 25)</label>
+            <input class="t_input" type="number" id="radius" name="radius" min="1" max="150" /><br>
+            <label id="clarify">Decimal values will be rounded to their nearest integer.</label>
+            <p>
+                <button class="button" id="add" type="submit">Add element</button>
+                <button class="button" id="delete" formaction="element_delete.html" type="submit">Delete element</button>
+            </p>
+            <!-- To add defaults maybe have additional forms with default values that cannot be changed and only an add button -->
+        </section>
+
+        <!-- "Upload a .sdf file" tab -->
+        <section id="sdf_upload" class="content">
+            <h1> File Upload </h1>
+            <form action="sdf_upload.html" enctype="multipart/form-data" method="post">
+                <label id="mol_label" for="molName">Enter molecule name:</label>
+            <input class="t_input" type="text" id="molName" name="mol" minlength="1" maxlength="32" required />
+            <p><label id="clarify">Name must be between 1 and 32 characters</label> </p>
+            <p>
+                <label for="sdf_file" class="sdf_label">
+                    Select File
+                    <input type="file" id="sdf_file" name="filename" accept=".sdf" required />
+                </label>
+                <span id="file_name"></span>
+            </p>
+            <label id="clarify">Only .sdf files are accepted</label>
+            <p>
+                <button class="button" id="submit" type="submit">Upload</button>
+            </p>
+        </form>
+    </section>
+
+    <!-- "Display a molecule" tab -->
+    <section id="display_mol" class="content">
+        <h1>Display Molecule</h1>
+        <form action="display_mol.html" enctype="multipart/form-data" method="post">
+            <!-- id is for python code (dynamic options), class is for styling -->
+            <select id="molSelect" class="mol_select" name="molecule" size="8" required>
+            </select><br>
+            <button class="button" id="display" type="submit">Display</button>
+        </form>
+        <br>
+    </section>
+</body>
+
+</html>

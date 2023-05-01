@@ -1,0 +1,20 @@
+    <!-- <div class="molecule"></div> -->
+
+    <!-- Form for molecule rotations -->
+    <form class="rotate" action="display_mol.html" enctype="multipart/form-data" method="post">
+    <!-- <form class="rotate" > -->
+        <label id="rotate_label">Rotate %s</label>
+        <input class="t_input" type="number" id="degree" name="deg" min="-360" max="360" required/>
+        <label id="degree_label">degrees</label><br>
+        <label>About the [</label>
+        <input type="radio" id="axis" name="rotation" value="X" required></radio>
+        <label for="x">X</label>
+        <input type="radio" id="axis" name="rotation" value="Y" required></radio>
+        <label for="y">Y</label>
+        <input type="radio" id="axis" name="rotation" value="Z" required></radio>
+        <label for="z">Z</label>
+        <label>] axis.</label>
+        <input class="hidden" type="text" id="name" name="mol" value="%s" readonly/> <br>
+        <button class="button" id="rotate" type="submit">Rotate Molecule</button>
+    </form>
+    
